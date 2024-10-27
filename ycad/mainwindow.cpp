@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+#if 0
 #include "aboutdialog.h"
+#endif
 
 #include <QDebug>
 #include <QFileDialog>
 #include <QGraphicsPixmapItem>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,9 +31,14 @@ MainWindow::on_actionCreate_triggered()
 void
 MainWindow::on_actionAbout_triggered()
 {
+#if 0
     qDebug() << "onAboutTriggered...";
     AboutDialog dlg;
     dlg.exec();
+#else
+    QMessageBox::about(this, tr("About ycad"),
+        tr("<p>The <b>ycad</b> is a DIY CAD software</p><p>Version: 0.1.42</p>"));
+#endif
 }
 
 void

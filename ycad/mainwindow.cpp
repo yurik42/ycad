@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->statusbar->showMessage("Ready...");
 }
 
 MainWindow::~MainWindow()
@@ -57,5 +58,6 @@ MainWindow::on_actionLoad_image_triggered()
         scene->addItem(new QGraphicsPixmapItem(*pixmap));
         ui->graphicsView->setScene(scene);
         ui->graphicsView->show();
+        ui->statusbar->showMessage("Loaded image from:" + fileName);
     }
 }

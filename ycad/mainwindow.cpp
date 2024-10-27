@@ -61,3 +61,9 @@ MainWindow::on_actionLoad_image_triggered()
         ui->statusbar->showMessage("Loaded image from:" + fileName);
     }
 }
+
+void
+MainWindow::on_actionShow_Coordinates_triggered(bool chk)
+{
+    qDebug() << "on_actionShow_Coordinates_triggered(" << chk << ")";
+}

@@ -21,6 +21,7 @@ public slots:
     void on_actionCreate_triggered();
     void on_actionAbout_triggered();
     void on_actionLoad_image_triggered();
+    void on_actionShow_Coordinates_triggered(bool chk);
 
 private:
     Ui::MainWindow *ui;

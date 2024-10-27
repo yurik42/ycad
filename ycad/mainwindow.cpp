@@ -4,6 +4,8 @@
 #include "aboutdialog.h"
 
 #include <QDebug>
+#include <QFileDialog>
+#include <QGraphicsPixmapItem>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,4 +31,23 @@ MainWindow::on_actionAbout_triggered()
     qDebug() << "onAboutTriggered...";
     AboutDialog dlg;
     dlg.exec();
+}
+
+void
+MainWindow::on_actionLoad_image_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(
+        this,
+        "Open Raster File",
+        ".",
+        "Raster Files (*.*)");
+
+    if (!fileName.isEmpty()) {
+        QGraphicsScene *scene = new QGraphicsScene();
+        QPixmap *pixmap = new QPixmap(fileName);
+        qDebug() << "item->size()" << pixmap->size();
+        scene->addItem(new QGraphicsPixmapItem(*pixmap));
+        ui->graphicsView->setScene(scene);
+        ui->graphicsView->show();
+    }
 }

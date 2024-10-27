@@ -20,6 +20,7 @@ public:
 public slots:
     void on_actionCreate_triggered();
     void on_actionAbout_triggered();
+    void on_actionLoad_image_triggered();
 
 private:
     Ui::MainWindow *ui;

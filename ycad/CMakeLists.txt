@@ -44,7 +44,9 @@ else()
         add_executable(ycad
             ${PROJECT_SOURCES}
             aboutdialog.h aboutdialog.cpp aboutdialog.ui
+            drawingpanel.h drawingpanel.cpp
         )
+        target_include_directories(ycad PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
     endif()
 
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
